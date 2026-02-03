@@ -1,0 +1,132 @@
+:root{
+    --bg-color: rgb(255, 253, 243);
+    --main-color: rgb(65, 65, 65);
+}
+
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color:var(--bg-color);
+    font-family: Muli, sans-serif;
+    font-size: 16px;
+    margin: 0px;
+}
+.header{
+    width: 100%;
+    height: 20vh;
+    padding: 0px 5px;
+    margin: 0;
+    text-align: center;
+}
+.header h1{
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 5px 5px 4px pink;
+    font-weight: bold;
+    font-size: 4rem;
+    margin-top: 0;
+    line-height: 0.8;
+}
+.header p{
+    margin:-2rem ;
+    padding: 2px 5px;
+    width: 100%;
+    height: auto;
+    font-size: 1.5rem;
+    font-weight:normal;
+    text-shadow: 1px 1px 3px black;
+}
+.header p::selection{
+    background-color: yellow;
+    color: red;
+}
+
+.navigation{
+    width: 100%;
+    background-color:rgb(65, 65, 65);
+}
+.nav{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    overflow: auto;
+}
+.nav li{
+    float: left;
+}
+.nav li a.hastam{
+    background-color: green;
+    color: white;
+}
+.nav a{
+    display: block;
+    color: rgb(212, 206, 206);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.nav li :hover{
+    background-color:black;
+}
+
+
+.image{
+    display: flex;
+    overflow-x: auto;
+    justify-content: left;
+}
+.image img{
+    margin-top: 5px;
+    max-width: 40rem;
+    max-height: 60rem;
+    border: 2px solid var(--main-color);
+    border-collapse: collapse;
+    box-shadow: 2px 2px 4px 0 var(--main-color);
+}
+.image img:hover{
+    transform: scale(1.005);
+    box-shadow: 4px 4px 6px var(--main-color);
+}
+
+.video{
+    flex-grow: 1;
+}
+.video video{
+    width: 100vw;
+    height: 100vh;
+    box-shadow: 4px 4px 6px ;
+}
+.video figcaption{
+    font-size: 1.5rem;
+    font-weight:bold;
+    text-align: center;
+}
+.video figcaption::selection{
+    background-color: yellow;
+    color: red;
+}
+
+footer{
+    text-align: center;
+}
+footer address{
+    background-color: rgb(141, 154, 255);
+    font-weight: 400;
+    font-style: italic;
+}
+
+@media screen and (max-width:768px) {
+    .image img{
+        max-width: 30rem;
+        max-height: 50rem;
+        margin-bottom: 10px;
+    }
+    .video video{
+        width: 100%;
+        height: 100%;
+    }
+
+    
+}
