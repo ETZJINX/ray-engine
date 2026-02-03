@@ -96,3 +96,27 @@ footer address{
     font-weight: 400;
     font-style: italic;
 }
+
+
+@media screen and (max-width : 768px){
+    header h1{
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    nav li{
+        float: none;   
+        width: 100%;   
+        display: block;
+        border-bottom: 1px solid rgba(255,255,255,0.1); 
+    }
+    section {
+        grid-template-rows: auto auto; 
+        padding: 10px; 
+    }
+    article {
+        padding: 15px; 
+    }
+
+    
+
+}

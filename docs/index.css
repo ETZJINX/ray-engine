@@ -142,11 +142,30 @@ footer address{
 }
 
 
-@media screen and (max-width:768px) {
-    .features{
-        display: grid;
-        grid-template-columns: 1fr;
-        width: 100%;
+@media screen and (max-width: 768px) {
+    
+    .header h1 {
+        font-size: 2.5rem; 
     }
     
+    .header p {
+        font-size: 1rem; 
+    }
+    .nav li {
+        float: none;   
+        width: 100%;   
+        display: block;
+        border-bottom: 1px solid rgba(255,255,255,0.1); 
+    }
+    
+    
+    .features {
+        grid-template-columns: 1fr; 
+        width: 96%; 
+        margin: 10px auto; 
+    }
+    .features div {
+        border-top: 2px solid var(--main-color); 
+        margin-bottom: 10px;
+    }
 }
