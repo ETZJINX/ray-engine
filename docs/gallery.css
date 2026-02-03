@@ -16,7 +16,7 @@ body{
 }
 .header{
     width: 100%;
-    height: 20vh;
+    height: auto;
     padding: 0px 5px;
     margin: 0;
     text-align: center;
@@ -30,10 +30,8 @@ body{
     line-height: 0.8;
 }
 .header p{
-    margin:-2rem ;
+    margin:0;
     padding: 2px 5px;
-    width: 100%;
-    height: auto;
     font-size: 1.5rem;
     font-weight:normal;
     text-shadow: 1px 1px 3px black;
