@@ -90,6 +90,34 @@ body{
     box-shadow: 4px 4px 6px var(--main-color);
 }
 
+
+
+.linux {
+    display: block;
+    text-align: center;
+}
+.linux img{
+    margin-top: 5px;
+    max-width: 40rem;
+    max-height: 60rem;
+    border: 2px solid var(--main-color);
+    border-collapse: collapse;
+    box-shadow: 2px 2px 4px 0 var(--main-color);
+}
+.linux img:hover{
+    transform: scale(1.005);
+    box-shadow: 4px 4px 6px var(--main-color);
+}
+.linux-fig{
+    font-size: 1.5rem;
+    font-weight:bold;
+    text-align: center;
+}
+.linux-fig::selection{
+    background-color: yellow;
+    color: red;
+}
+
 .video{
     flex-grow: 1;
 }
@@ -119,6 +147,11 @@ footer address{
 
 @media screen and (max-width:768px) {
     .image img{
+        max-width: 30rem;
+        max-height: 50rem;
+        margin-bottom: 10px;
+    }
+    .linux img{
         max-width: 30rem;
         max-height: 50rem;
         margin-bottom: 10px;
