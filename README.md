@@ -24,7 +24,7 @@ make
 
 
 #After building, run the game with:
-./game
+make run
 
 
 
