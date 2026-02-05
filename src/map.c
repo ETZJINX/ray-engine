@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "map.h"
 #include "raylib.h"
 #include "player.h"
@@ -53,3 +54,81 @@ void init_world_map(void){
         }
         
     }
+
+    void draw_minimap(void){
+        int miniCellSize = 6;
+        int mapWidthInPixels = 30 * miniCellSize;
+        int screenWidth = GetScreenWidth();
+
+        int offsetX = screenWidth - mapWidthInPixels - 10;
+        int offsetY = 10;
+        DrawRectangle(offsetX, offsetY, mapWidthInPixels, mapWidthInPixels, Fade(BLACK, 0.5f));
+        for (int i = 0; i < 30; i++)
+        {
+            for (int j = 0; j < 30; j++)
+            {
+                DrawRectangleLines(offsetX + (i * miniCellSize), 
+                              offsetY + (j * miniCellSize), 
+                              miniCellSize, miniCellSize, BLACK);
+                if (world_map[i][j] == 1)
+                {
+                    DrawRectangle(offsetX + (i * miniCellSize), 
+                              offsetY + (j * miniCellSize), 
+                              miniCellSize, miniCellSize, LIGHTGRAY);
+                    
+                }
+            }
+        }
+        float scale = (float)miniCellSize / 30.0f;
+    
+        int playerMiniX = offsetX + (int)(playerposition.x * scale);
+        int playerMiniY = offsetY + (int)(playerposition.y * scale);
+
+        DrawCircle(playerMiniX, playerMiniY, 3, RED);
+
+        DrawLine(playerMiniX, playerMiniY, 
+                playerMiniX + (int)(playerdirection.x * 10), 
+                playerMiniY + (int)(playerdirection.y * 10), RED);
+    }
+
+    void save_map(const char *filename){
+        FILE *file = fopen(filename, "w");
+
+        if (file == NULL) {
+        TraceLog(LOG_ERROR, "Failed to save map file!");
+        return;
+    }
+
+    for (int j = 0; j < 30; j++) 
+    {
+        for (int i = 0; i < 30; i++) 
+        {
+            fprintf(file, "%d ", world_map[i][j]); 
+        }
+        fprintf(file, "\n");
+    }
+    fclose(file);
+    TraceLog(LOG_INFO, "Map saved successfully to %s", filename);
+    }
+    void load_map(const char *filename){
+
+        FILE *file = fopen(filename, "r");
+        if (file == NULL) {
+        TraceLog(LOG_WARNING, "Map file not found! creating a new one or ignoring.");
+        return;
+    }
+    for (int j = 0; j < 30; j++)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            fscanf(file, "%d", &world_map[i][j]); 
+        }
+    }
+
+    fclose(file);
+    TraceLog(LOG_INFO, "Map loaded successfully from %s", filename);
+    }
+
+
+
+

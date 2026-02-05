@@ -11,6 +11,13 @@
    init_world_map();
    while (!WindowShouldClose())
    {
+       if (IsKeyPressed(KEY_K)) {
+          save_map("my_map.txt"); 
+      }
+      
+      if (IsKeyPressed(KEY_L)) {
+          load_map("my_map.txt"); 
+      }
       if (IsKeyPressed(KEY_M))
       {
          neshane = !neshane;
@@ -23,10 +30,12 @@
          update_map();
          draw_world_map();
          draw_player();
+         DrawText("K: Save Map | L: Load Map | M: 3D Mode", 10, 10, 20, RED);
       }
       else 
       {
          raydirection();
+         draw_minimap();
       }
       EndDrawing();
       
