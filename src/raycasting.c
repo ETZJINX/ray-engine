@@ -89,24 +89,14 @@ void raydirection(void){
     {
         drawend = screenHeight;
     }
-    DrawRectangle(i,0,i,drawstart,BLUE);
+    DrawRectangle(i,0,1,drawstart,BLUE);
     if (side == 1)
     {
-        DrawRectangle(i,drawstart,i,drawend,DARKGRAY);
+        DrawRectangle(i,drawstart,1,drawend - drawstart,DARKGRAY);
     }
-    else DrawRectangle(i,drawstart,i,drawend,GRAY);
-    
-    DrawRectangle(i,drawend,i,screenHeight,BROWN);    
+    else DrawRectangle(i,drawstart,1,drawend - drawstart,GRAY);
+    DrawRectangle(i,drawend,1,screenHeight,BROWN);    
     }
-    
-    
-
-
-
-
-
-
-
 }
 
 

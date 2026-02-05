@@ -16,11 +16,11 @@
          neshane = !neshane;
       }
       player();
-      update_map();
       BeginDrawing();
       ClearBackground(RAYWHITE);
       if (neshane == 0)
       {
+         update_map();
          draw_world_map();
          draw_player();
       }

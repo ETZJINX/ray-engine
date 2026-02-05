@@ -1,5 +1,6 @@
 #include "map.h"
 #include "raylib.h"
+#include "player.h"
 int world_map[30][30];
 void init_world_map(void){
     for (int i = 0; i < 30; i++)
@@ -39,10 +40,12 @@ void init_world_map(void){
         Vector2 mouseposition = GetMousePosition();
         int i = mouseposition.x /30;
         int j = mouseposition.y /30;
+        int i2 = playerposition.x / 30;
+        int j2 = playerposition.y /30;
 
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
-            if ((i != 0 && i != 29 && j != 0 && j != 29))
+            if ((i != 0 && i != 29 && j != 0 && j != 29) && !(i2 ==i && j2 == j))
             {
                 world_map[i][j] = !world_map[i][j];
             }
